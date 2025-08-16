@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabzy</title>
+
+    <style>
+      .tab-active a {
+        color: rgb(103, 253, 16);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ! conteiner -->
+    <ul id="tabs">
+      <!-- ! tabs -->
+      <li><a href="#tab1">tab1</a></li>
+      <li><a href="#tab2">tab2</a></li>
+      <li><a href="#tab3">tab3</a></li>
+      <li><a href="#tab4">tab4</a></li>
+    </ul>
+
+    <div id="tab1">tab 1 content</div>
+    <div id="tab2">tab 2 content</div>
+    <div id="tab3">tab 3 content</div>
+    <div id="tab4">tab 4 content</div>
+
+    <script src="./src/tabzy.js"></script>
+    <script>
+      const tabs = new Tabzy("#tabs");
+    </script>
+  </body>
+</html>

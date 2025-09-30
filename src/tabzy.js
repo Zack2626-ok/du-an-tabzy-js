@@ -1,7 +1,7 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-function Tabzy(selector) {
+function Tabzy(selector, opction = {}) {
   this.container = $(selector);
   if (!this.container) {
     console.error(`Tabzy not found selector in container ${selector}`);
@@ -29,6 +29,13 @@ function Tabzy(selector) {
 
   if (this.tab.length !== this.panels.length) return;
 
+  this.opt = Object.assign(
+    {
+      remember: false,
+    },
+    opction
+  );
+
   this._originalHTML = this.container.innerHTML;
   // console.log(this._originalHTML);
 
@@ -36,15 +43,19 @@ function Tabzy(selector) {
 }
 
 Tabzy.prototype._init = function () {
-  let tabToActivate = null;
-  const saveTab = localStorage.getItem("tabzy-active");
-  if (saveTab) {
-    tabToActivate = this.tab.find(
-      (tab) => tab.getAttribute("href") === saveTab
-    );
-  } else {
-    tabToActivate = this.tab[0];
-  }
+  // const hash = location.hash;
+  // if (hash) {
+  //   tabToActivate = this.tab.find((tab) => tab.getAttribute("href") === hash) || this.tab[0];
+  // } else {
+  //   tabToActivate = this.tab[0];
+  // }
+
+  const hash = location.hash;
+  const tabToActivate =
+    (this.opt.remember &&
+      hash &&
+      this.tab.find((tab) => tab.getAttribute("href") === hash)) ||
+    this.tab[0];
 
   this._activeTab(tabToActivate);
 
@@ -67,7 +78,9 @@ Tabzy.prototype._activeTab = function (tab) {
   const panelActive = $(tab.getAttribute("href"));
   panelActive.hidden = false;
 
-  localStorage.setItem("tabzy-active", tab.getAttribute("href"));
+  if (this.opt.remember) {
+    history.replaceState(null, null, tab.getAttribute("href"));
+  }
 };
 
 // ? tabs.switch("#tab3")

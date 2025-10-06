@@ -6,39 +6,61 @@
     <title>Tabzy</title>
 
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
       .tab-active a {
         color: rgb(103, 253, 16);
         font-weight: bold;
+      }
+      .demo1 {
+        background: aquamarine;
+      }
+
+      .tab1 {
+        display: flex;
+        list-style: none;
+      }
+      .tab1 a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 15px;
+        background: yellow;
       }
     </style>
   </head>
   <body>
     <!-- ! conteiner -->
-    <ul id="tabs">
-      <!-- ! tabs -->
-      <li><a href="#tab1">tab1</a></li>
-      <li><a href="#tab2">tab2</a></li>
-      <li><a href="#tab3">tab3</a></li>
-      <li><a href="#tab4">tab4</a></li>
-    </ul>
+    <div class="demo1">
+      <ul id="tabs" class="tab1">
+        <!-- ! tabs -->
+        <li><a href="#tab1">tab1</a></li>
+        <li><a href="#tab2">tab2</a></li>
+        <li><a href="#tab3">tab3</a></li>
+        <li><a href="#tab4">tab4</a></li>
+      </ul>
 
-    <div id="tab1">tab 1 content</div>
-    <div id="tab2">tab 2 content</div>
-    <div id="tab3">tab 3 content</div>
-    <div id="tab4">tab 4 content</div>
+      <div id="tab1">tab 1 content</div>
+      <div id="tab2">tab 2 content</div>
+      <div id="tab3">tab 3 content</div>
+      <div id="tab4">tab 4 content</div>
+    </div>
 
-    <ul id="tabs2">
-      <!-- ! tabs -->
-      <li><a href="#tab21">tab21</a></li>
-      <li><a href="#tab22">tab22</a></li>
-      <li><a href="#tab23">tab23</a></li>
-      <li><a href="#tab24">tab24</a></li>
-    </ul>
+    <div class="demo2">
+      <ul id="tabs2" class="tab2">
+        <!-- ! tabs -->
+        <li><a href="#tab21">tab21</a></li>
+        <li><a href="#tab22">tab22</a></li>
+        <li><a href="#tab23">tab23</a></li>
+        <li><a href="#tab24">tab24</a></li>
+      </ul>
 
-    <div id="tab21">tab 21 content</div>
-    <div id="tab22">tab 22 content</div>
-    <div id="tab23">tab 23 content</div>
-    <div id="tab24">tab 24 content</div>
+      <div id="tab21">tab 21 content</div>
+      <div id="tab22">tab 22 content</div>
+      <div id="tab23">tab 23 content</div>
+      <div id="tab24">tab 24 content</div>
+    </div>
 
     <script src="./src/tabzy.js"></script>
     <script>

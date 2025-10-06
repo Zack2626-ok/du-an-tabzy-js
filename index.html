@@ -44,7 +44,11 @@
     <script>
       const tabs = new Tabzy("#tabs", {
         remember: true,
+        onChange: (data) => {
+          console.log(data);
+        },
       });
+
       const tabs2 = new Tabzy("#tabs2", {
         remember: true,
       });
